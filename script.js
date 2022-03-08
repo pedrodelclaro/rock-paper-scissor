@@ -1,12 +1,12 @@
 // When the user makes a selection
 // Make the player's selection case-insensitive and stores in a variable called playerSelection
-// script.js:9 Uncaught TypeError: Cannot read properties of null (reading 'toLowerCase')
 
 const playerSelection = playerPlay();
 function playerPlay() {
-   return window.prompt("Rock, Paper or Scissors?", "").toLowerCase();
+    const playerInput = window.prompt("Rock, Paper or Scissors?", "") + "";
+    return playerInput.toLowerCase();
 }
-console.log(playerSelection)
+console.log(playerSelection);
 
 // Make a funcition called computerPlay that Random picks between Rock Paper Scissor and store in a variable called computerSelection
 
@@ -33,7 +33,7 @@ function playRound(playerSelection, computerSelection) {
     } else if (playerSelection === "paper" && computerSelection === "scissors") {
         return "You lose! Scissors beats paper."
     } else if (playerSelection === computerSelection) {
-        return "It's a tie! Try again."
+        return "It's a tie!"
     } else {
         return "Something went wrong! Try again."
     }
