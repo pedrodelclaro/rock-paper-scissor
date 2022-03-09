@@ -56,12 +56,14 @@ Cria uma variavel game com um loop que:
 */
 
 
+let playerScore = 0;
+let computerScore = 0;
+
 function game() {
-    let playerScore = 0;
-    let computerScore = 0;
     for (let i = 0; i < 5; i++) {
         let round = playRound();
         console.log(round);
+        alert(round);
         if (round.startsWith("You win")) {
             playerScore++
         } else if (round.startsWith("You lose")) {
@@ -71,6 +73,15 @@ function game() {
         }
     }
     console.log(playerScore, computerScore);
+    if (playerScore > computerScore) {
+        return `Congratulations, you won! The score was ${playerScore} to ${computerScore}.`
+    }  else if (computerScore > playerScore) {
+        return `Sorry, you lost! The Score was ${computerScore} to ${playerScore}.`
+    } else {
+        return `It's a tie! The score was ${playerScore} to ${computerScore}.`
+    }
 }
 
 let result = game();
+console.log(result);
+alert(result);
