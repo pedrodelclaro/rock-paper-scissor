@@ -1,25 +1,25 @@
 // When the user makes a selection
-// Make the player's selection case-insensitive and stores in a variable called playerSelection
+// Make the player's selection case-insensitive
 
-const playerSelection = playerPlay();
 function playerPlay() {
-    const playerInput = window.prompt("Rock, Paper or Scissors?", "") + "";
+    const playerInput = prompt("Rock, Paper or Scissors?", "") + "";
     return playerInput.toLowerCase();
 }
-console.log(playerSelection);
 
 // Make a funcition called computerPlay that Random picks between Rock Paper Scissor and store in a variable called computerSelection
 
-const computerSelection = computerPlay();
 function computerPlay() {
     const choice = ["rock", "paper", "scissors"];
     return choice[Math.floor(Math.random() * choice.length)];
 }
-console.log(computerSelection);
 
 // Make a function called playRound with playerSelection and computerSelection as parameters that plays a round and returns the result
 
-function playRound(playerSelection, computerSelection) {
+function playRound() {
+    const playerSelection = playerPlay();
+    console.log(playerSelection);
+    const computerSelection = computerPlay();
+    console.log(computerSelection);
     if (playerSelection === "scissors" && computerSelection === "paper") {
         return "You win! Scissors beats paper."
     } else if (playerSelection === "paper" && computerSelection === "rock") {
@@ -38,7 +38,6 @@ function playRound(playerSelection, computerSelection) {
         return "Something went wrong! Try again."
     }
 }
-console.log(playRound(playerSelection, computerSelection));
 
 // Make a function called game that uses loop, calss plaRound to play a 5 round game, keeps score and returns a winner
 /* Criar uma variavel para armazenar o score do jogador = 0
@@ -55,3 +54,23 @@ Cria uma variavel game com um loop que:
         Caso contrário > YOu lose
         Restart?        
 */
+
+
+function game() {
+    let playerScore = 0;
+    let computerScore = 0;
+    for (let i = 0; i < 5; i++) {
+        let round = playRound();
+        console.log(round);
+        if (round.startsWith("You win")) {
+            playerScore++
+        } else if (round.startsWith("You lose")) {
+            computerScore++
+        } else {
+            continue;
+        }
+    }
+    console.log(playerScore, computerScore);
+}
+
+let result = game();
