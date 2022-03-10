@@ -69,3 +69,14 @@ function game() {
 let result = game();
 console.log(result);
 alert(result);
+
+// Adds replayability
+
+let playAgain = confirm("Replay?");
+replay(playAgain);
+
+function replay(playAgain) {
+    if (playAgain) {
+        document.location.reload()
+    }
+}
